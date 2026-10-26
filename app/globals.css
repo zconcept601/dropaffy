@@ -3,18 +3,55 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --bg: #f7f1e8;
+  --surface: #fffdf9;
+  --surface-soft: #f4efe9;
+  --primary: #113c2f;
+  --primary-strong: #0d2d24;
+  --primary-soft: #dfeee6;
+  --accent: #ea7d2a;
+  --accent-soft: #fff3ea;
+  --text: #1c2430;
+  --muted: #5d6977;
+  --success: #1f9d62;
+  --warning: #d77a12;
+  --danger: #d93c2f;
+  --shadow: 0 18px 40px rgba(17, 60, 47, 0.08);
+  --radius: 20px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1715;
+    --surface: #12211d;
+    --surface-soft: #1b2d29;
+    --primary: #d7efe4;
+    --primary-strong: #a8d7bc;
+    --primary-soft: #1d3d37;
+    --accent: #ff9d52;
+    --accent-soft: #2d231d;
+    --text: #edf5f1;
+    --muted: #aac0b3;
+    --success: #46c58a;
+    --warning: #f0b95f;
+    --danger: #ff7a6f;
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 img {
@@ -22,13 +59,75 @@ img {
   max-width: 100%;
 }
 
+button,
 input,
-textarea,
 select,
-button {
+textarea {
   font: inherit;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::selection {
-  background: rgba(18, 61, 140, 0.15);
+  background: rgba(17, 60, 47, 0.14);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(17, 60, 47, 0.08);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid rgba(17, 60, 47, 0.18);
+  color: var(--text);
+  font-weight: 600;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+}
+
+.badge-green {
+  background: rgba(31, 157, 98, 0.12);
+  color: var(--success);
+}
+
+.badge-orange {
+  background: rgba(234, 125, 42, 0.12);
+  color: var(--accent);
+}
+
+.badge-red {
+  background: rgba(217, 60, 47, 0.12);
+  color: var(--danger);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  margin-right: 0.4rem;
 }
